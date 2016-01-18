@@ -6,6 +6,7 @@ public class Board {
 	private final int boardHeight;
 	private final int boardSize;
 	private Snale snale;
+	private Slot endSlot;
 	
 	
 	// constructor
@@ -15,6 +16,7 @@ public class Board {
 		this.boardSize = width*height;
 		this.slots = new Slot[width][height];
 		this.snale = new Snale();
+		this.endSlot = new Slot();
 		
 		for(int h=0; h<height; h++){
 			for(int w=0; w<width; w++){
@@ -25,6 +27,8 @@ public class Board {
 		this.slots[0][0].setPassed(true);
 		this.snale.setSnaleCoordinateX(0);
 		this.snale.setSnaleCoordinateY(0);
+		
+		this.endSlot = slots[10][10];
 	}
 
 		
@@ -44,10 +48,16 @@ public class Board {
 	public Snale getSnale(){
 		return this.snale;
 	}
+	public Slot getEndSlot() {
+		return endSlot;
+	}
 
 	// setters for private attributes
 	public void setSlots(Slot slots[][]) {
 		this.slots = slots;
+	}
+	public void setEndSlot(Slot endSlot) {
+		this.endSlot = endSlot;
 	}
 	
 
